@@ -1,6 +1,14 @@
-<form action="brad07.php">
-    <input name="x"/>
+<?php
+    $x = $y = $r = '';
+    if (isset($_GET['x']) && isset($_GET['y'])){
+        $x = $_GET['x']; $y = $_GET['y'];
+        $r = $x + $y;    
+    } 
+?>
+<form action="brad06.php">
+    <input name="x" value="<?php echo $x; ?>"/>
     +
-    <input name="y"/>
+    <input name="y" value="<?php echo $y; ?>"/>
     <input type="submit" value="="/>
+    <span><?php echo $r; ?></span>
 </form>
