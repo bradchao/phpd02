@@ -5,4 +5,12 @@
     }else{
         echo "XX; a = {$a}, b = {$b}";
     }
+    echo '<hr />';
+
+    $x = '00';
+    if ($x){
+        echo 'OK';
+    }else{
+        echo 'XX';
+    }
 ?>
