@@ -2,11 +2,21 @@
 <hr />
 <table border="1" width="100%">
 <?php
-    for ($k = 0; $k < 2; $k++){
+    define('ROWS', 4);
+    define('START', 2);
+    define('COLS', 4);
+    
+
+    for ($k = 0; $k < ROWS; $k++){
         echo '<tr>';
-        for ($j = 2; $j <= 5; $j++){
-            $newj = $j + $k * 4;
-            echo '<td>';
+        for ($j = START; $j < START + COLS; $j++){
+            $newj = $j + $k * COLS;
+            if (($j+$k) % 2 == 0){
+                echo '<td bgcolor="pink">';
+            }else{
+                echo '<td bgcolor="yellow">';
+            }
+
             for($i = 1; $i <= 9; $i++){
                 $r = $newj * $i;
                 echo "{$newj} x {$i} = {$r}<br />";
