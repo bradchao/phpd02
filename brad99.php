@@ -1,59 +1,20 @@
 <h1>九九乘法表</h1>
 <hr />
 <table border="1" width="100%">
-    <tr>
-        <td>
-            <?php
-                for($i = 1; $i <= 9; $i++){
-                    $r = 2 * $i;
-                    echo "2 x {$i} = {$r}<br />";
-                }
-            ?>
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-        <td>
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-            2 x 1 = 2<br />
-        </td>
-    </tr>
+<?php
+    for ($k = 0; $k < 2; $k++){
+        echo '<tr>';
+        for ($j = 2; $j <= 5; $j++){
+            $newj = $j + $k * 4;
+            echo '<td>';
+            for($i = 1; $i <= 9; $i++){
+                $r = $newj * $i;
+                echo "{$newj} x {$i} = {$r}<br />";
+            }
+            echo '</td>';    
+        }
+        echo '</tr>';
 
+    }
+?>
 </table>
