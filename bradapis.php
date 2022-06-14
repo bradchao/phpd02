@@ -29,4 +29,31 @@
 
         return $result;
     }
+
+    function createTWIdByRandom(){
+        $gender = rand(1,2) == 1;
+        return createTWIdByGender($gender);
+    }
+    function createTWIdByGender($gender = false){
+        $area = substr(LETTERS, rand(0,25), 1);
+        return createTWIdByBoth($area, $gender);
+    }
+    function createTWIdByArea($area = 'B'){
+        $gender = rand(1,2) == 1;
+        return createTWIdByBoth($area, $gender);
+    }
+    function createTWIdByBoth($area, $gender){
+        $tempId = $area;
+        $tempId .= ($gender ? '1' : '2');
+        for ($i=0; $i<7;$i++){
+            $tempId .= rand(0,9);
+        }
+        for ($i=0; $i<=9; $i++){
+            if (checkTWId($tempId . $i)){
+                $tempId .= $i;
+                break;
+            }
+        }
+        return $tempId;
+    }
 ?>
