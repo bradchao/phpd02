@@ -1,5 +1,10 @@
 <?php
     include('sql.php');
+
+    spl_autoload_register(function($className){
+        require_once $className . '.php';
+    });
+
     if (!isset($_REQUEST['account'])) header("Location: login.php");
 
     $account = $_REQUEST['account']; $passwd = $_REQUEST['passwd'];
@@ -13,6 +18,8 @@
     if ($result->num_rows > 0){
         $member = $result->fetch_object();
         if (password_verify($passwd, $member->passwd)){
+            $_SESSION['member'] = $member;
+            $_SESSION['cart'] = new Cart();
             header("Location: main.php");
         }else{
             header("Location: login.php");
