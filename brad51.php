@@ -10,13 +10,13 @@
     //var_dump($result);
     //echo $result->num_rows . '<br />';
 
-    // while ($row = $result->fetch_object()){
-    //     echo "{$row->id}:{$row->custName}:{$row->tel}:{$row->birthday}<br />";
-    // }
-
-    while ($row = $result->fetch_array()){
-        echo "{$row['id']}:{$row['cust-name']}:{$row['tel']}:{$row['birthday']}<br />";
+    while ($row = $result->fetch_object()){
+        echo "{$row->id}:{$row->{'cust-name'}}:{$row->tel}:{$row->birthday}<br />";
     }
+
+    // while ($row = $result->fetch_array()){
+    //     echo "{$row['id']}:{$row['cust-name']}:{$row['tel']}:{$row['birthday']}<br />";
+    // }
 
     // $stmt =  $mysqli->prepare($sql);
     // $stmt->execute();
