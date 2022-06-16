@@ -1,7 +1,6 @@
 <meta charset="utf-8" />
 <?php
-    $mysqli = new mysqli('localhost', 'root', 'root', 'ispan', 3306);
-    $mysqli->set_charset('utf8');
+    include('sql.php');
 
     if (isset($_GET['delid'])){
         $delid = $_GET['delid'];
@@ -26,6 +25,7 @@
         <th>Account</th>
         <th>Realname</th>
         <th>Del</th>
+        <th>Edit</th>
     </tr>
     <?php
         while ($member = $result->fetch_object()){
@@ -34,6 +34,7 @@
             echo "<td>{$member->realname}</td>";
             echo "<td><a href='?delid={$member->id}' " . 
             "onclick='return deleteConfirm(\"{$member->realname}\");'>Del</a></td>";
+            echo "<td><a href='brad55.php?editid={$member->id}'>Edit</a></td>";
             echo '</tr>';
             echo "\n";
         }
