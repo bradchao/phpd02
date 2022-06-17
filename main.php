@@ -11,3 +11,5 @@
     $cart = $_SESSION['cart'];
 ?>
 Welcom, <?php echo $member->realname; ?>
+<hr />
+<a href="logout.php">Logout</a>

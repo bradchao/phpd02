@@ -4,6 +4,7 @@
     spl_autoload_register(function($className){
         require_once $className . '.php';
     });
+    session_start();
 
     if (!isset($_REQUEST['account'])) header("Location: login.php");
 
@@ -16,7 +17,7 @@
 
     $result = $stmt->get_result();
     if ($result->num_rows > 0){
-        $member = $result->fetch_object("Member");
+        $member = $result->fetch_object();
         if (password_verify($passwd, $member->passwd)){
             $_SESSION['member'] = $member;
             $_SESSION['cart'] = new Cart();
