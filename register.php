@@ -1,3 +1,29 @@
+<meta charset="utf-8" />
+<?php
+    include("sql.php");
+
+    if (isset($_REQUEST["account"])){
+        $account = $_REQUEST['account'];
+        $passwd = password_hash($_REQUEST['passwd'], PASSWORD_DEFAULT);
+        $realname = $_REQUEST['realname'];
+
+        $icon = null;
+        if ($_FILES['icon']['error'] == 0){
+            $icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+        }
+
+        $sql = "INSERT INTO member (account,passwd,realname,icon) VALUES " .
+            "('{$account}','{$passwd}','{$realname}','{$icon}')";
+        if ($mysqli->query($sql)){
+            header("Location: login.php");
+        }else{
+            echo "ERROR: " . $sql;
+        }
+
+    }
+
+
+?>
 <script>
     var xhttp = new XMLHttpRequest();
 
