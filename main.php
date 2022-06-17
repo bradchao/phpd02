@@ -9,7 +9,10 @@
 
     $member = $_SESSION['member'];
     $cart = $_SESSION['cart'];
+
+    $icon = base64_encode($member->icon) ;
 ?>
-Welcom, <?php echo $member->realname; ?>
+Welcom, <?php echo $member->realname; ?><br />
+<img src="data:<?php echo $member->icontype; ?>;base64, <?php echo $icon; ?>"/>
 <hr />
 <a href="logout.php">Logout</a>
