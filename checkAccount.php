@@ -16,7 +16,7 @@
 
     $result = $stmt->get_result();
     if ($result->num_rows > 0){
-        $member = $result->fetch_object();
+        $member = $result->fetch_object("Member");
         if (password_verify($passwd, $member->passwd)){
             $_SESSION['member'] = $member;
             $_SESSION['cart'] = new Cart();
