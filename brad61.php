@@ -5,8 +5,8 @@
     });
 
     $myquery = new MyQuery($mysqli);
-    $name = $myquery->getProductData(127, 'name');
-    $tel = $myquery->getProductData(127, 'tel');
+    $name = $myquery->getProductData(124, MyQuery::QUERY_NAME);
+    $tel = $myquery->getProductData(124, MyQuery::QUERY_TEL);
 
     echo "{$name}:{$tel}<hr />";
     

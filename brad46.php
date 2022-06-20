@@ -1,6 +1,6 @@
 <?php
     class Bike {
-        private $speed;
+        protected $speed;   // private -> protected -> public(var)
 
         function __construct(){
             $this->speed = 0;
@@ -18,23 +18,41 @@
         }
     }
 
-    $myBike = new Bike(); $urBike = new Bike();
-    $myBike->upSpeed();    
-    $myBike->upSpeed();    
-    $myBike->upSpeed();    
-    $myBike->upSpeed();
+    class Scooter extends Bike {
+        function upSpeed(){
+            $this->speed = $this->speed<1 ? 1 : $this->speed*3.1; 
+        }
+        function getSpeed(){
+            return $this->speed . ' km/hr';
+        }
+        function gas(){
+            echo 'gas()';
+        }
+    }
 
-    $urBike->upSpeed();
-    $urBike->upSpeed();
-    $urBike->upSpeed();
-    $urBike->upSpeed();
-    $urBike->downSpeed();
-    $urBike->upSpeed();
+    class Brad {
 
-    echo "myBike : {$myBike->getSpeed()}<br />";
-    echo "urBike : {$urBike->getSpeed()}<br />";
-    echo "<hr />";
-    //$myBike->speed = 10.1;
-    echo "myBike : {$myBike->getSpeed()}<br />";
+    }
+
+    $brad = new Brad();
+    $b1 = new Bike();
+    $s1 = new Scooter();
+    
+    $b1->upSpeed(); $b1->upSpeed();$b1->upSpeed(); $b1->upSpeed();
+    $s1->upSpeed(); $s1->upSpeed();$s1->upSpeed(); $s1->upSpeed();
+
+    // echo $b1->getSpeed() . '<br />';
+    // echo $s1->getSpeed() . '<hr />';
+
+    function test1(Bike $obj){
+        echo $obj->getSpeed() . '<br />';
+        if ($obj instanceof Scooter){
+            $obj->gas();
+        }
+    }
+
+    test1($b1);
+    test1($s1);
+
 
 ?>

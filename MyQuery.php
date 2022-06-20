@@ -1,6 +1,9 @@
 <?php 
     class MyQuery {
         private $mysqli;
+        const QUERY_NAME = 'name';
+        const QUERY_TEL = 'tel';
+        const QUERY_ADDRESS = 'addr';
 
         function __construct($mysqli){
             $this->mysqli = $mysqli;
