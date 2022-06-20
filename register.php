@@ -9,7 +9,10 @@
 
         $icon = null; $icontype = null;
         if ($_FILES['icon']['error'] == 0){
-            $icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+            //$icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+
+            $icon = mysqli_real_escape_string(file_get_contents($_FILES['icon']['tmp_name']));
+
             $icontype = $_FILES['icon']['type'];
         }
 
