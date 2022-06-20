@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" />
+<?xml version="1.0" encoding="UTF-8" ?>
 <books>
     <book isbn='11223344' price='100'>
         <title>PHP 大補帖</title>

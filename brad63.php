@@ -36,4 +36,4 @@ MemberiD: <?php echo $cart->getMemberId(); ?><br />
     }
 ?>
 <hr />
-<a href="brad64.php">Next</a>
+<a href="cash.php">Next</a>
